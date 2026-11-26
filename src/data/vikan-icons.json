@@ -1,0 +1,138 @@
+[
+  {
+    "name": "Accessories",
+    "file": "/media/vikan/icons/0.webp"
+  },
+  {
+    "name": "Brooms, Deck & Wall Scrubs",
+    "file": "/media/vikan/icons/1.webp"
+  },
+  {
+    "name": "Brushes",
+    "file": "/media/vikan/icons/2.webp"
+  },
+  {
+    "name": "Buckets",
+    "file": "/media/vikan/icons/3.webp"
+  },
+  {
+    "name": "Couplings",
+    "file": "/media/vikan/icons/4.webp"
+  },
+  {
+    "name": "Dustpans & Dusters",
+    "file": "/media/vikan/icons/5.webp"
+  },
+  {
+    "name": "Garments",
+    "file": "/media/vikan/icons/6.webp"
+  },
+  {
+    "name": "Handles",
+    "file": "/media/vikan/icons/7.webp"
+  },
+  {
+    "name": "Kits",
+    "file": "/media/vikan/icons/8.webp"
+  },
+  {
+    "name": "Microfiber Mop Frames",
+    "file": "/media/vikan/icons/9.webp"
+  },
+  {
+    "name": "Microfiber Mops & Cloths",
+    "file": "/media/vikan/icons/10.webp"
+  },
+  {
+    "name": "Mixing Paddles",
+    "file": "/media/vikan/icons/11.webp"
+  },
+  {
+    "name": "Mobile Cleaning Station",
+    "file": "/media/vikan/icons/12.webp"
+  },
+  {
+    "name": "Scoops",
+    "file": "/media/vikan/icons/13.webp"
+  },
+  {
+    "name": "Scouring Pads & Holders",
+    "file": "/media/vikan/icons/14.webp"
+  },
+  {
+    "name": "Scrapers",
+    "file": "/media/vikan/icons/15.webp"
+  },
+  {
+    "name": "Shovels, Fork & Rake",
+    "file": "/media/vikan/icons/16.webp"
+  },
+  {
+    "name": "Squeegees",
+    "file": "/media/vikan/icons/17.webp"
+  },
+  {
+    "name": "Tubs & Undercarriages",
+    "file": "/media/vikan/icons/18.webp"
+  },
+  {
+    "name": "Wall Brackets",
+    "file": "/media/vikan/icons/19.webp"
+  },
+  {
+    "name": "Water Guns & Hoses",
+    "file": "/media/vikan/icons/20.webp"
+  },
+  {
+    "name": "Clean in Place (CIP)",
+    "file": "/media/vikan/icons/21.webp"
+  },
+  {
+    "name": "Detail Cleaning",
+    "file": "/media/vikan/icons/22.webp"
+  },
+  {
+    "name": "Dry Cleaning",
+    "file": "/media/vikan/icons/23.webp"
+  },
+  {
+    "name": "Floors & Walls",
+    "file": "/media/vikan/icons/24.webp"
+  },
+  {
+    "name": "Food Handling",
+    "file": "/media/vikan/icons/25.webp"
+  },
+  {
+    "name": "Food Service, Restaurants, & Kitchens",
+    "file": "/media/vikan/icons/26.webp"
+  },
+  {
+    "name": "Hard-to-Reach Areas",
+    "file": "/media/vikan/icons/27.webp"
+  },
+  {
+    "name": "Hospitals & Office Buildings",
+    "file": "/media/vikan/icons/28.webp"
+  },
+  {
+    "name": "Restrooms & Toilets",
+    "file": "/media/vikan/icons/29.webp"
+  },
+  {
+    "name": "Spill & Hazard Response",
+    "file": "/media/vikan/icons/30.webp"
+  },
+  {
+    "name": "Waste Handling",
+    "file": "/media/vikan/icons/31.webp"
+  },
+  {
+    "name": "Wet Cleaning",
+    "file": "/media/vikan/icons/32.webp"
+  },
+  {
+    "name": "Windows & Glossy Surfaces",
+    "file": "/media/vikan/icons/33.webp"
+  }
+]

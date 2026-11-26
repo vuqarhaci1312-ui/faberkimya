@@ -1,0 +1,576 @@
+.hero {
+  position: relative;
+  margin: calc(var(--header-h) + 12px) 16px 0;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #9ec9e8;
+  aspect-ratio: 2012 / 782;
+  line-height: 0;
+}
+.heroImage {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  image-rendering: auto;
+}
+.heroContent {
+  position: absolute;
+  z-index: 2;
+  left: clamp(28px, 6.2%, 88px);
+  top: 50%;
+  transform: translateY(-50%);
+  width: min(500px, 43%);
+  display: grid;
+  gap: 18px;
+  justify-items: start;
+  line-height: normal;
+  pointer-events: none;
+}
+.heroContent a {
+  pointer-events: auto;
+}
+.heroContent h1 {
+  margin: 0;
+  font-size: clamp(30px, 3.15vw, 44px);
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: -0.03em;
+  color: #1a3a6d;
+}
+.heroContent p {
+  margin: 0;
+  max-width: 46ch;
+  font-size: clamp(15px, 1.2vw, 19px);
+  font-weight: 400;
+  line-height: 1.5;
+  color: #1a3a6d;
+}
+.heroCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 6px;
+  padding: 14px 30px;
+  border-radius: 999px;
+  background: #1a3a6d;
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 1.25;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.25s ease;
+}
+.heroCta:hover,
+.heroCta:focus-visible {
+  background: #012f6c;
+}
+
+.highlightsWrap {
+  width: min(1296px, calc(100% - 64px));
+  margin: 80px auto 0;
+}
+.highlights {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: 24px;
+  row-gap: 32px;
+}
+.highlightDots {
+  display: none;
+}
+.highlightDot,
+.highlightDotOn {
+  border: 0;
+  padding: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+.highlightDot {
+  width: 8px;
+  height: 8px;
+  background: rgba(1, 47, 108, 0.28);
+}
+.highlightDotOn {
+  width: 10px;
+  height: 10px;
+  background: #012f6c;
+}
+.highlightCard {
+  display: block;
+  padding: 64px 40px 80px;
+  border-radius: 40px;
+  background: #f5faff;
+  color: #111827;
+  text-decoration: none;
+  transition: background 0.35s ease, color 0.35s ease;
+}
+.highlightCard:hover,
+.highlightCard:focus-visible {
+  background: linear-gradient(145deg, #0040c1 0%, #012f6c 52%, #0057b8 100%);
+  color: #ffffff;
+}
+.highlightBody {
+  display: flex;
+  flex-direction: column;
+  gap: 74px;
+  min-height: 169px;
+}
+.highlightText { display: grid; gap: 4px; }
+.highlightTitle {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 36.4px;
+  letter-spacing: -0.84px;
+  color: #111827;
+  transition: color 0.35s ease;
+}
+.highlightCard:hover .highlightTitle,
+.highlightCard:focus-visible .highlightTitle {
+  color: #ffffff;
+}
+.highlightLabel {
+  margin: 0;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 400;
+  letter-spacing: -0.28px;
+  text-transform: uppercase;
+  color: #4b5563;
+  transition: color 0.35s ease;
+}
+.highlightCard:hover .highlightLabel,
+.highlightCard:focus-visible .highlightLabel {
+  color: rgba(255, 255, 255, 0.92);
+}
+.highlightLogo {
+  width: 169px;
+  height: 66px;
+  object-fit: contain;
+  object-position: left center;
+  transition: filter 0.35s ease;
+}
+.highlightCard:hover .highlightLogo,
+.highlightCard:focus-visible .highlightLogo {
+  filter: brightness(0) invert(1);
+}
+
+.trusted { margin: 72px 0 0; text-align: center; color: #012f6c; }
+.trustedMarquee {
+  width: 100%;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.trustedViewport {
+  width: min(1248px, 100%);
+  height: 100px;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
+}
+.trustedTrack {
+  display: flex;
+  width: max-content;
+  height: 100px;
+  animation: trustedMarquee 65s linear infinite;
+  will-change: transform;
+}
+.trustedSet {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  height: 100px;
+  margin: 0;
+  padding: 0 20px;
+  list-style: none;
+}
+.trustedSet img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  display: block;
+}
+@keyframes trustedMarquee {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .trustedTrack { animation: none; transform: none; }
+  .trustedViewport { overflow-x: auto; mask-image: none; -webkit-mask-image: none; }
+}
+
+.contactSection {
+  width: min(1296px, calc(100% - 64px));
+  margin: 40px auto 32px;
+  padding: clamp(28px, 3.2vw, 44px) clamp(24px, 3.5vw, 48px);
+  border-radius: 32px;
+  background: #9ec9e8;
+  color: #1a3a6d;
+}
+.contactInner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  gap: clamp(24px, 3.5vw, 40px);
+  align-items: start;
+}
+.contactIntro {
+  display: grid;
+  gap: 14px;
+  justify-items: start;
+}
+.contactLogo {
+  width: min(168px, 44vw);
+  height: auto;
+  display: block;
+  object-fit: contain;
+  object-position: left center;
+}
+.contactTitle {
+  margin: 0;
+  font-size: clamp(30px, 3.5vw, 44px);
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: -0.04em;
+  color: #1a3a6d;
+}
+.contactBlurb {
+  margin: 0;
+  max-width: 28rem;
+  font-size: clamp(14px, 1.2vw, 16px);
+  font-weight: 400;
+  line-height: 1.45;
+  color: #1a3a6d;
+}
+.contactForm {
+  display: grid;
+  gap: 14px;
+  align-content: start;
+}
+.contactFormLead {
+  margin: 0;
+  font-size: clamp(18px, 1.8vw, 22px);
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  color: #1a3a6d;
+}
+.contactTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.contactTag,
+.contactTagOn {
+  min-height: 36px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 14px;
+  line-height: 1.25;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.contactTag {
+  border: 1.5px solid rgba(26, 58, 109, 0.45);
+  background: rgba(255, 255, 255, 0.35);
+  color: #1a3a6d;
+}
+.contactTagOn {
+  border: 1.5px solid #1a3a6d;
+  background: #1a3a6d;
+  color: #ffffff;
+  font-weight: 500;
+}
+.contactField {
+  display: grid;
+  gap: 4px;
+}
+.contactField span {
+  font-size: 14px;
+  line-height: 1.25;
+  color: #1a3a6d;
+}
+.contactField input,
+.contactField textarea {
+  width: 100%;
+  border: 0;
+  border-bottom: 1.5px solid rgba(26, 58, 109, 0.4);
+  border-radius: 0;
+  background: transparent;
+  color: #1a3a6d;
+  font: inherit;
+  font-size: 16px;
+  line-height: 1.5;
+  padding: 4px 0 8px;
+  outline: none;
+  resize: vertical;
+  min-height: 36px;
+}
+.contactField input::placeholder,
+.contactField textarea::placeholder {
+  color: rgba(26, 58, 109, 0.45);
+}
+.contactField input:focus,
+.contactField textarea:focus {
+  border-bottom-color: #1a3a6d;
+}
+.contactSubmit {
+  justify-self: start;
+  margin-top: 2px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 26px;
+  border: 0;
+  border-radius: 999px;
+  background: #1a3a6d;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.contactSubmit:hover,
+.contactSubmit:focus-visible {
+  background: #012f6c;
+}
+.contactSuccess {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #1a3a6d;
+}
+
+@media (max-width: 1023px) and (min-width: 768px) {
+  .hero {
+    margin: calc(var(--header-h) + 8px) 12px 0;
+    border-radius: 14px;
+  }
+  .heroImage {
+    object-position: 72% center;
+  }
+  .heroContent {
+    left: 20px;
+    top: clamp(16px, 4vw, 32px);
+    transform: none;
+    width: min(48%, 340px);
+    gap: 12px;
+  }
+  .heroContent h1 {
+    font-size: clamp(22px, 4.2vw, 28px);
+    line-height: 1.2;
+  }
+  .heroContent p {
+    font-size: clamp(13px, 2vw, 15px);
+    line-height: 1.4;
+    max-width: none;
+  }
+  .heroCta {
+    padding: 11px 20px;
+    font-size: 14px;
+  }
+  .highlightsWrap {
+    width: calc(100% - 32px);
+    margin: 56px auto 0;
+  }
+  .highlights {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .highlightCard { padding: 48px 32px 56px; border-radius: 32px; }
+  .highlightBody { gap: 48px; }
+  .highlightTitle { font-size: 24px; line-height: 30px; letter-spacing: -0.6px; }
+}
+@media (max-width: 767px) {
+  .hero {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    aspect-ratio: auto;
+    height: auto;
+    min-height: clamp(340px, 48vh, 420px);
+    width: calc(100% - 32px);
+    margin: calc(var(--header-h) + 8px) auto 0;
+    border-radius: 16px;
+    line-height: normal;
+    background: #9ec9e8;
+    box-sizing: border-box;
+  }
+  .heroContent {
+    position: relative;
+    z-index: 2;
+    order: 1;
+    flex: 1;
+    left: auto;
+    right: auto;
+    top: auto;
+    transform: none;
+    width: 100%;
+    padding: clamp(32px, 9vw, 44px) 24px clamp(28px, 8vw, 40px);
+    gap: 16px;
+    box-sizing: border-box;
+    background: #9ec9e8;
+    pointer-events: auto;
+    justify-items: stretch;
+    align-content: center;
+    min-height: 100%;
+  }
+  .heroContent h1 {
+    font-size: clamp(22px, 6vw, 26px);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+  .heroContent p {
+    font-size: 14px;
+    line-height: 1.5;
+    max-width: none;
+  }
+  .heroCta {
+    width: 100%;
+    justify-content: center;
+    margin-top: 4px;
+    padding: 13px 20px;
+    font-size: 15px;
+  }
+  .heroImage {
+    display: none;
+  }
+  .highlightsWrap {
+    width: calc(100% - 32px);
+    margin: 32px auto 0;
+  }
+  .highlights {
+    display: flex;
+    grid-template-columns: unset;
+    row-gap: 0;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0 0 6px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 0;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-x;
+    gap: 12px;
+    scrollbar-width: none;
+    box-sizing: border-box;
+  }
+  .highlights::-webkit-scrollbar {
+    display: none;
+  }
+  .highlightCard {
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    box-sizing: border-box;
+    padding: 36px 24px 44px;
+    border-radius: 24px;
+  }
+  .highlightBody {
+    gap: 36px;
+    min-height: 0;
+  }
+  .highlightTitle {
+    font-size: 22px;
+    line-height: 28px;
+  }
+  .highlightDots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 14px;
+  }
+  .highlightCardActive {
+    background: linear-gradient(145deg, #0040c1 0%, #012f6c 52%, #0057b8 100%);
+    color: #ffffff;
+  }
+  .highlightCardActive .highlightTitle {
+    color: #ffffff;
+  }
+  .highlightCardActive .highlightLabel {
+    color: rgba(255, 255, 255, 0.92);
+  }
+  .highlightCardActive .highlightLogo {
+    filter: brightness(0) invert(1);
+  }
+  .contactSection {
+    width: calc(100% - 32px);
+    margin-left: auto;
+    margin-right: auto;
+    padding: 18px 14px 20px;
+    border-radius: 20px;
+  }
+  .contactInner {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .contactIntro {
+    gap: 10px;
+  }
+  .contactLogo {
+    width: min(148px, 42vw);
+  }
+  .contactTitle {
+    font-size: 26px;
+    line-height: 1.15;
+  }
+  .contactBlurb {
+    font-size: 14px;
+    line-height: 1.45;
+    max-width: none;
+  }
+  .contactForm {
+    gap: 12px;
+  }
+  .contactFormLead {
+    font-size: 17px;
+    line-height: 1.3;
+  }
+  .contactTags {
+    gap: 8px;
+  }
+  .contactTag,
+  .contactTagOn {
+    min-height: 34px;
+    padding: 5px 12px;
+    font-size: 13px;
+  }
+  .contactField input,
+  .contactField textarea {
+    font-size: 16px;
+  }
+  .contactSubmit {
+    width: 100%;
+    justify-self: stretch;
+    min-height: 48px;
+  }
+  .gap120 {
+    height: 24px;
+  }
+}
+@media (max-width: 380px) {
+  .hero {
+    min-height: clamp(320px, 52vh, 380px);
+  }
+  .heroContent {
+    padding: 28px 16px 32px;
+  }
+  .heroContent h1 {
+    font-size: 20px;
+  }
+  .heroContent p {
+    font-size: 13px;
+  }
+}

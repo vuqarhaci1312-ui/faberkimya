@@ -1,0 +1,30 @@
+.card { position: relative; background: #ffffff; border-radius: 8px; width: 100%; max-width: 293px; min-height: 420px; }
+.menu {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 1;
+  width: 28px;
+  height: 28px;
+  border: 0;
+  background: transparent;
+  color: #012f6c;
+  font-size: 20px;
+  cursor: pointer;
+}
+.card a { display: flex; flex-direction: column; height: 100%; color: #012f6c; }
+.media { height: 280px; display: flex; align-items: center; justify-content: center; padding: 28px 16px 8px; }
+.media img { max-height: 220px; width: auto; max-width: 100%; object-fit: contain; }
+.copy { margin-top: auto; padding: 0 16px 18px; }
+.code { font-size: 14px; line-height: 20px; margin: 0 0 4px; }
+h2 { font-size: 16px; font-weight: 400; line-height: 22px; margin: 0; }
+
+@media (max-width: 1023px) {
+  .card { max-width: none; min-height: 0; }
+  .menu { display: none; }
+  .media { height: 132px; padding: 12px 8px 4px; }
+  .media img { max-height: 108px; }
+  .copy { padding: 0 10px 12px; }
+  .code { font-size: 12px; line-height: 16px; margin-bottom: 2px; }
+  h2 { font-size: 13px; line-height: 17px; }
+}

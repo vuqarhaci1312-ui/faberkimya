@@ -1,0 +1,74 @@
+[
+  {
+    "name": "Products",
+    "svg": "<svg viewBox=\"0 0 8 14\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" class=\"jD_t3W_link_arrow\"><path d=\"M1 13L6.3361 8.38671C6.54658 8.20471 6.71354 7.98864 6.82746 7.75084C6.94137 7.51303 7 7.25815 7 7.00074C7 6.74334 6.94137 6.48846 6.82746 6.25065C6.71354 6.01285 6.54658 5.79678 6.3361 5.61478L1 1\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" style=\"stroke: var(--icon-color, #65B2E9);\"></path></svg>"
+  },
+  {
+    "name": "About the Vikan Ranges",
+    "svg": "<svg viewBox=\"0 0 8 14\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" class=\"jD_t3W_link_arrow\"><path d=\"M1 13L6.3361 8.38671C6.54658 8.20471 6.71354 7.98864 6.82746 7.75084C6.94137 7.51303 7 7.25815 7 7.00074C7 6.74334 6.94137 6.48846 6.82746 6.25065C6.71354 6.01285 6.54658 5.79678 6.3361 5.61478L1 1\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" style=\"stroke: var(--icon-color, #65B2E9);\"></path></svg>"
+  },
+  {
+    "name": "Featured Products",
+    "svg": "<svg viewBox=\"0 0 8 14\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" class=\"jD_t3W_link_arrow\"><path d=\"M1 13L6.3361 8.38671C6.54658 8.20471 6.71354 7.98864 6.82746 7.75084C6.94137 7.51303 7 7.25815 7 7.00074C7 6.74334 6.94137 6.48846 6.82746 6.25065C6.71354 6.01285 6.54658 5.79678 6.3361 5.61478L1 1\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" style=\"stroke: var(--icon-color, #65B2E9);\"></path></svg>"
+  },
+  {
+    "name": "Knowledge Centre",
+    "svg": "<svg viewBox=\"0 0 8 14\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" class=\"jD_t3W_link_arrow\"><path d=\"M1 13L6.3361 8.38671C6.54658 8.20471 6.71354 7.98864 6.82746 7.75084C6.94137 7.51303 7 7.25815 7 7.00074C7 6.74334 6.94137 6.48846 6.82746 6.25065C6.71354 6.01285 6.54658 5.79678 6.3361 5.61478L1 1\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" style=\"stroke: var(--icon-color, #65B2E9);\"></path></svg>"
+  },
+  {
+    "name": "Industries",
+    "svg": "<svg viewBox=\"0 0 8 14\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" class=\"jD_t3W_link_arrow\"><path d=\"M1 13L6.3361 8.38671C6.54658 8.20471 6.71354 7.98864 6.82746 7.75084C6.94137 7.51303 7 7.25815 7 7.00074C7 6.74334 6.94137 6.48846 6.82746 6.25065C6.71354 6.01285 6.54658 5.79678 6.3361 5.61478L1 1\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" style=\"stroke: var(--icon-color, #65B2E9);\"></path></svg>"
+  },
+  {
+    "name": "Support",
+    "svg": "<svg viewBox=\"0 0 8 14\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" class=\"jD_t3W_link_arrow\"><path d=\"M1 13L6.3361 8.38671C6.54658 8.20471 6.71354 7.98864 6.82746 7.75084C6.94137 7.51303 7 7.25815 7 7.00074C7 6.74334 6.94137 6.48846 6.82746 6.25065C6.71354 6.01285 6.54658 5.79678 6.3361 5.61478L1 1\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" style=\"stroke: var(--icon-color, #65B2E9);\"></path></svg>"
+  },
+  {
+    "name": "About Vikan",
+    "svg": "<svg viewBox=\"0 0 8 14\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" class=\"jD_t3W_link_arrow\"><path d=\"M1 13L6.3361 8.38671C6.54658 8.20471 6.71354 7.98864 6.82746 7.75084C6.94137 7.51303 7 7.25815 7 7.00074C7 6.74334 6.94137 6.48846 6.82746 6.25065C6.71354 6.01285 6.54658 5.79678 6.3361 5.61478L1 1\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" style=\"stroke: var(--icon-color, #65B2E9);\"></path></svg>"
+  },
+  {
+    "name": "Careers",
+    "svg": "<svg viewBox=\"0 0 8 14\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" class=\"jD_t3W_link_arrow\"><path d=\"M1 13L6.3361 8.38671C6.54658 8.20471 6.71354 7.98864 6.82746 7.75084C6.94137 7.51303 7 7.25815 7 7.00074C7 6.74334 6.94137 6.48846 6.82746 6.25065C6.71354 6.01285 6.54658 5.79678 6.3361 5.61478L1 1\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" style=\"stroke: var(--icon-color, #65B2E9);\"></path></svg>"
+  },
+  {
+    "name": "Contact Us",
+    "svg": "<svg viewBox=\"0 0 8 14\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" class=\"jD_t3W_link_arrow\"><path d=\"M1 13L6.3361 8.38671C6.54658 8.20471 6.71354 7.98864 6.82746 7.75084C6.94137 7.51303 7 7.25815 7 7.00074C7 6.74334 6.94137 6.48846 6.82746 6.25065C6.71354 6.01285 6.54658 5.79678 6.3361 5.61478L1 1\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" style=\"stroke: var(--icon-color, #65B2E9);\"></path></svg>"
+  },
+  {
+    "name": "+45 96 14 26 00",
+    "svg": "<svg viewBox=\"0 0 20 20\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" class=\"_4-f-Aa_detail_icon\"><path d=\"M7.50246 2.25746C7.19873 1.49815 6.46332 1.00024 5.64551 1.00024H2.89474C1.8483 1.00024 1 1.84834 1 2.89478C1 11.7895 8.21078 19.0002 17.1055 19.0002C18.1519 19.0002 19 18.1519 19 17.1054L19.0005 14.3542C19.0005 13.5364 18.5027 12.8011 17.7434 12.4974L15.1069 11.4432C14.4249 11.1704 13.6483 11.2931 13.0839 11.7634L12.4035 12.3309C11.6089 12.9931 10.4396 12.9405 9.7082 12.209L7.79222 10.2913C7.06079 9.55986 7.00673 8.39158 7.66895 7.59693L8.23633 6.91654C8.70661 6.3522 8.83049 5.5754 8.55766 4.89334L7.50246 2.25746Z\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" style=\"stroke: var(--icon-color, #0057B8);\"></path></svg>"
+  },
+  {
+    "name": "vikan@vikan.com",
+    "svg": "<svg viewBox=\"0 0 40 32\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" class=\"_4-f-Aa_detail_icon\"><path d=\"M4 4L16.2153 13.2245L16.2193 13.2279C17.5757 14.2226 18.2543 14.7202 18.9975 14.9124C19.6545 15.0823 20.345 15.0823 21.002 14.9124C21.7459 14.72 22.4264 14.2209 23.7852 13.2245C23.7852 13.2245 31.6202 7.21188 36 4M2 23.6004V8.40039C2 6.16018 2 5.03924 2.43597 4.18359C2.81947 3.43095 3.43095 2.81947 4.18359 2.43597C5.03924 2 6.16018 2 8.40039 2H31.6004C33.8406 2 34.9591 2 35.8148 2.43597C36.5674 2.81947 37.181 3.43095 37.5645 4.18359C38 5.0384 38 6.15799 38 8.39382V23.6072C38 25.843 38 26.961 37.5645 27.8158C37.181 28.5684 36.5674 29.181 35.8148 29.5645C34.96 30 33.842 30 31.6062 30H8.39382C6.15799 30 5.0384 30 4.18359 29.5645C3.43095 29.181 2.81947 28.5684 2.43597 27.8158C2 26.9601 2 25.8406 2 23.6004Z\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" style=\"stroke: var(--icon-color, #0057B8);\"></path></svg>"
+  },
+  {
+    "name": "+45 96 14 26 10",
+    "svg": "<svg viewBox=\"0 0 20 20\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" class=\"_4-f-Aa_detail_icon\"><path d=\"M7.50246 2.25746C7.19873 1.49815 6.46332 1.00024 5.64551 1.00024H2.89474C1.8483 1.00024 1 1.84834 1 2.89478C1 11.7895 8.21078 19.0002 17.1055 19.0002C18.1519 19.0002 19 18.1519 19 17.1054L19.0005 14.3542C19.0005 13.5364 18.5027 12.8011 17.7434 12.4974L15.1069 11.4432C14.4249 11.1704 13.6483 11.2931 13.0839 11.7634L12.4035 12.3309C11.6089 12.9931 10.4396 12.9405 9.7082 12.209L7.79222 10.2913C7.06079 9.55986 7.00673 8.39158 7.66895 7.59693L8.23633 6.91654C8.70661 6.3522 8.83049 5.5754 8.55766 4.89334L7.50246 2.25746Z\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" style=\"stroke: var(--icon-color, #0057B8);\"></path></svg>"
+  },
+  {
+    "name": "export@vikan.com",
+    "svg": "<svg viewBox=\"0 0 40 32\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" class=\"_4-f-Aa_detail_icon\"><path d=\"M4 4L16.2153 13.2245L16.2193 13.2279C17.5757 14.2226 18.2543 14.7202 18.9975 14.9124C19.6545 15.0823 20.345 15.0823 21.002 14.9124C21.7459 14.72 22.4264 14.2209 23.7852 13.2245C23.7852 13.2245 31.6202 7.21188 36 4M2 23.6004V8.40039C2 6.16018 2 5.03924 2.43597 4.18359C2.81947 3.43095 3.43095 2.81947 4.18359 2.43597C5.03924 2 6.16018 2 8.40039 2H31.6004C33.8406 2 34.9591 2 35.8148 2.43597C36.5674 2.81947 37.181 3.43095 37.5645 4.18359C38 5.0384 38 6.15799 38 8.39382V23.6072C38 25.843 38 26.961 37.5645 27.8158C37.181 28.5684 36.5674 29.181 35.8148 29.5645C34.96 30 33.842 30 31.6062 30H8.39382C6.15799 30 5.0384 30 4.18359 29.5645C3.43095 29.181 2.81947 28.5684 2.43597 27.8158C2 26.9601 2 25.8406 2 23.6004Z\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" style=\"stroke: var(--icon-color, #0057B8);\"></path></svg>"
+  },
+  {
+    "name": "Products by Category",
+    "svg": "<svg viewBox=\"0 0 14 12\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" class=\"_0E_Ima_arrow\"><path d=\"M0.75 5.74982H12.75M12.75 5.74982C12.75 5.96432 12.7092 6.17752 12.63 6.3757C12.5507 6.57387 12.4346 6.75393 12.2882 6.90559L8.57609 10.75M12.75 5.74982C12.75 5.53531 12.7092 5.32371 12.63 5.12554C12.5507 4.92737 12.4346 4.74731 12.2882 4.59565L8.57609 0.75\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" style=\"stroke: var(--icon-color, #0057B8);\"></path></svg>"
+  },
+  {
+    "name": "Products by Application",
+    "svg": "<svg viewBox=\"0 0 14 12\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" class=\"_0E_Ima_arrow\"><path d=\"M0.75 5.74982H12.75M12.75 5.74982C12.75 5.96432 12.7092 6.17752 12.63 6.3757C12.5507 6.57387 12.4346 6.75393 12.2882 6.90559L8.57609 10.75M12.75 5.74982C12.75 5.53531 12.7092 5.32371 12.63 5.12554C12.5507 4.92737 12.4346 4.74731 12.2882 4.59565L8.57609 0.75\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" style=\"stroke: var(--icon-color, #0057B8);\"></path></svg>"
+  },
+  {
+    "name": "Products by Range",
+    "svg": "<svg viewBox=\"0 0 14 12\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" class=\"_0E_Ima_arrow\"><path d=\"M0.75 5.74982H12.75M12.75 5.74982C12.75 5.96432 12.7092 6.17752 12.63 6.3757C12.5507 6.57387 12.4346 6.75393 12.2882 6.90559L8.57609 10.75M12.75 5.74982C12.75 5.53531 12.7092 5.32371 12.63 5.12554C12.5507 4.92737 12.4346 4.74731 12.2882 4.59565L8.57609 0.75\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" style=\"stroke: var(--icon-color, #0057B8);\"></path></svg>"
+  },
+  {
+    "name": "About the Vikan Ranges",
+    "svg": "<svg viewBox=\"0 0 14 12\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" class=\"_0E_Ima_arrow\"><path d=\"M0.75 5.74982H12.75M12.75 5.74982C12.75 5.96432 12.7092 6.17752 12.63 6.3757C12.5507 6.57387 12.4346 6.75393 12.2882 6.90559L8.57609 10.75M12.75 5.74982C12.75 5.53531 12.7092 5.32371 12.63 5.12554C12.5507 4.92737 12.4346 4.74731 12.2882 4.59565L8.57609 0.75\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" style=\"stroke: var(--icon-color, #0057B8);\"></path></svg>"
+  },
+  {
+    "name": "Featured Products",
+    "svg": "<svg viewBox=\"0 0 14 12\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" class=\"_0E_Ima_arrow\"><path d=\"M0.75 5.74982H12.75M12.75 5.74982C12.75 5.96432 12.7092 6.17752 12.63 6.3757C12.5507 6.57387 12.4346 6.75393 12.2882 6.90559L8.57609 10.75M12.75 5.74982C12.75 5.53531 12.7092 5.32371 12.63 5.12554C12.5507 4.92737 12.4346 4.74731 12.2882 4.59565L8.57609 0.75\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" style=\"stroke: var(--icon-color, #0057B8);\"></path></svg>"
+  }
+]

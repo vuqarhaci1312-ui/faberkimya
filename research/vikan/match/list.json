@@ -1,0 +1,52 @@
+{
+  "body": {
+    "w": 1425,
+    "h": 6157,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(1, 47, 108)",
+    "fs": "16px",
+    "fw": "400",
+    "lh": "24px",
+    "ls": "normal",
+    "radius": "0px",
+    "pad": "0px"
+  },
+  "main": {
+    "w": 1425,
+    "h": 4942,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(1, 47, 108)",
+    "fs": "16px",
+    "fw": "400",
+    "lh": "24px",
+    "ls": "normal",
+    "radius": "0px",
+    "pad": "100px 0px 0px"
+  },
+  "h1": {
+    "text": "Products",
+    "w": 208,
+    "h": 58,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(1, 47, 108)",
+    "fs": "57.6px",
+    "fw": "200",
+    "lh": "57.6px",
+    "ls": "-2.88px",
+    "radius": "0px",
+    "pad": "0px"
+  },
+  "card": {
+    "text": "44073 Grout Brush w/Scraping Edge 8.9\" Extra stiff, Blue",
+    "w": 293,
+    "h": 534,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(1, 47, 108)",
+    "fs": "16px",
+    "fw": "400",
+    "lh": "24px",
+    "ls": "normal",
+    "radius": "8px",
+    "pad": "0px"
+  }
+}

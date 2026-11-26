@@ -1,0 +1,17 @@
+{
+  "source": "https://www.vikan.com/",
+  "startedAt": "2026-11-25T07:12:03.251Z",
+  "finishedAt": "2026-11-25T07:13:01.755Z",
+  "visited": [
+    "https://www.vikan.com/int",
+    "https://www.vikan.com/int/products",
+    "https://www.vikan.com/int/products",
+    "https://www.vikan.com/int/products/brushes/detail-brushes/44073/grout-brush-wscraping-edge-225-mm-very-hard-blue",
+    "https://www.vikan.com/int/contact-us",
+    "https://www.vikan.com/int/about-vikan",
+    "https://www.vikan.com/int/search-result?query=brush",
+    "https://www.vikan.com/int/this-page-does-not-exist-faberkimya"
+  ],
+  "errors": [],
+  "notes": "Same URL is not fetched twice. Hero copy is CMS-variable; capture date is the frozen reference."
+}

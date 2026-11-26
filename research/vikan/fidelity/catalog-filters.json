@@ -1,0 +1,466 @@
+{
+  "initial": {
+    "label": "initial",
+    "scrollY": 0,
+    "toggle": {
+      "cls": "VZnKVW_close_button",
+      "text": "Filters",
+      "x": 96,
+      "w": 125.734375
+    },
+    "aside": [
+      {
+        "cls": "bvW4ma_filter_header",
+        "w": 1233,
+        "h": 58,
+        "x": 96,
+        "y": 248,
+        "position": "static",
+        "top": "auto",
+        "sticky": false
+      },
+      {
+        "cls": "XzlOkG_filter",
+        "w": 288,
+        "h": 377,
+        "x": 96,
+        "y": 330,
+        "position": "absolute",
+        "top": "0px",
+        "sticky": false
+      },
+      {
+        "cls": "VZnKVW_clear_filter",
+        "w": 116,
+        "h": 42,
+        "x": 269,
+        "y": 335,
+        "position": "static",
+        "top": "auto",
+        "sticky": false
+      },
+      {
+        "cls": "bvW4ma_filter_wrapper",
+        "w": 288,
+        "h": 305,
+        "x": 96,
+        "y": 402,
+        "position": "relative",
+        "top": "0px",
+        "sticky": false
+      },
+      {
+        "cls": "bvW4ma_filters",
+        "w": 288,
+        "h": 305,
+        "x": 96,
+        "y": 402,
+        "position": "static",
+        "top": "auto",
+        "sticky": false
+      },
+      {
+        "cls": "_6JGIfW_filter_section_btn",
+        "w": 248,
+        "h": 20,
+        "x": 116,
+        "y": 417,
+        "position": "static",
+        "top": "auto",
+        "sticky": false
+      },
+      {
+        "cls": "_6JGIfW_filter_section_btn",
+        "w": 248,
+        "h": 18,
+        "x": 116,
+        "y": 470,
+        "position": "static",
+        "top": "auto",
+        "sticky": false
+      },
+      {
+        "cls": "p5Dpua_filter_section_btn",
+        "w": 248,
+        "h": 18,
+        "x": 116,
+        "y": 521,
+        "position": "static",
+        "top": "auto",
+        "sticky": false
+      }
+    ],
+    "rows": [
+      {
+        "text": "Category Accessories",
+        "cls": "_6JGIfW_filter_section_btn",
+        "h": 20,
+        "br": "0px",
+        "bg": "rgba(0, 0, 0, 0)"
+      },
+      {
+        "text": "Subcategories",
+        "cls": "_6JGIfW_filter_section_btn",
+        "h": 18,
+        "br": "0px",
+        "bg": "rgba(0, 0, 0, 0)"
+      },
+      {
+        "text": "Application",
+        "cls": "p5Dpua_filter_section_btn",
+        "h": 18,
+        "br": "0px",
+        "bg": "rgba(0, 0, 0, 0)"
+      }
+    ],
+    "categoryOpen": null
+  },
+  "categoryOpen": {
+    "label": "category-open",
+    "scrollY": 0,
+    "toggle": {
+      "cls": "VZnKVW_close_button",
+      "text": "Filters",
+      "x": 96,
+      "w": 125.734375
+    },
+    "aside": [
+      {
+        "cls": "bvW4ma_filter_header",
+        "w": 1233,
+        "h": 58,
+        "x": 96,
+        "y": 248,
+        "position": "static",
+        "top": "auto",
+        "sticky": false
+      },
+      {
+        "cls": "XzlOkG_filter",
+        "w": 288,
+        "h": 377,
+        "x": 96,
+        "y": 330,
+        "position": "absolute",
+        "top": "0px",
+        "sticky": false
+      },
+      {
+        "cls": "VZnKVW_clear_filter",
+        "w": 116,
+        "h": 42,
+        "x": 269,
+        "y": 335,
+        "position": "static",
+        "top": "auto",
+        "sticky": false
+      },
+      {
+        "cls": "bvW4ma_filter_wrapper",
+        "w": 288,
+        "h": 305,
+        "x": 96,
+        "y": 402,
+        "position": "relative",
+        "top": "0px",
+        "sticky": false
+      },
+      {
+        "cls": "bvW4ma_filters",
+        "w": 288,
+        "h": 305,
+        "x": 96,
+        "y": 402,
+        "position": "static",
+        "top": "auto",
+        "sticky": false
+      },
+      {
+        "cls": "_6JGIfW_filter_section_btn",
+        "w": 248,
+        "h": 20,
+        "x": 116,
+        "y": 417,
+        "position": "static",
+        "top": "auto",
+        "sticky": false
+      },
+      {
+        "cls": "_6JGIfW_filter_section_btn",
+        "w": 248,
+        "h": 18,
+        "x": 116,
+        "y": 470,
+        "position": "static",
+        "top": "auto",
+        "sticky": false
+      },
+      {
+        "cls": "p5Dpua_filter_section_btn",
+        "w": 248,
+        "h": 18,
+        "x": 116,
+        "y": 521,
+        "position": "static",
+        "top": "auto",
+        "sticky": false
+      }
+    ],
+    "rows": [
+      {
+        "text": "Category Accessories",
+        "cls": "_6JGIfW_filter_section_btn",
+        "h": 20,
+        "br": "0px",
+        "bg": "rgba(0, 0, 0, 0)"
+      },
+      {
+        "text": "Subcategories",
+        "cls": "_6JGIfW_filter_section_btn",
+        "h": 18,
+        "br": "0px",
+        "bg": "rgba(0, 0, 0, 0)"
+      },
+      {
+        "text": "Application",
+        "cls": "p5Dpua_filter_section_btn",
+        "h": 18,
+        "br": "0px",
+        "bg": "rgba(0, 0, 0, 0)"
+      }
+    ],
+    "categoryOpen": null
+  },
+  "scrolled": {
+    "label": "scrolled",
+    "scrollY": 1200,
+    "toggle": {
+      "cls": "VZnKVW_close_button",
+      "text": "Filters",
+      "x": 96,
+      "w": 125.734375
+    },
+    "aside": [
+      {
+        "cls": "bvW4ma_filter_header",
+        "w": 1233,
+        "h": 58,
+        "x": 96,
+        "y": -952,
+        "position": "static",
+        "top": "auto",
+        "sticky": false
+      },
+      {
+        "cls": "XzlOkG_filter XzlOkG_is_fixed",
+        "w": 288,
+        "h": 377,
+        "x": 96,
+        "y": 9,
+        "position": "fixed",
+        "top": "20px",
+        "sticky": false
+      },
+      {
+        "cls": "VZnKVW_clear_filter",
+        "w": 116,
+        "h": 42,
+        "x": 269,
+        "y": 20,
+        "position": "static",
+        "top": "auto",
+        "sticky": false
+      },
+      {
+        "cls": "bvW4ma_filter_wrapper",
+        "w": 288,
+        "h": 305,
+        "x": 96,
+        "y": 87,
+        "position": "relative",
+        "top": "0px",
+        "sticky": false
+      },
+      {
+        "cls": "bvW4ma_filters",
+        "w": 288,
+        "h": 305,
+        "x": 96,
+        "y": 87,
+        "position": "static",
+        "top": "auto",
+        "sticky": false
+      },
+      {
+        "cls": "_6JGIfW_filter_section_btn",
+        "w": 248,
+        "h": 20,
+        "x": 116,
+        "y": 102,
+        "position": "static",
+        "top": "auto",
+        "sticky": false
+      },
+      {
+        "cls": "_6JGIfW_filter_section_btn",
+        "w": 248,
+        "h": 18,
+        "x": 116,
+        "y": 155,
+        "position": "static",
+        "top": "auto",
+        "sticky": false
+      },
+      {
+        "cls": "p5Dpua_filter_section_btn",
+        "w": 248,
+        "h": 18,
+        "x": 116,
+        "y": 206,
+        "position": "static",
+        "top": "auto",
+        "sticky": false
+      }
+    ],
+    "rows": [
+      {
+        "text": "Category Accessories",
+        "cls": "_6JGIfW_filter_section_btn",
+        "h": 20,
+        "br": "0px",
+        "bg": "rgba(0, 0, 0, 0)"
+      },
+      {
+        "text": "Subcategories",
+        "cls": "_6JGIfW_filter_section_btn",
+        "h": 18,
+        "br": "0px",
+        "bg": "rgba(0, 0, 0, 0)"
+      },
+      {
+        "text": "Application",
+        "cls": "p5Dpua_filter_section_btn",
+        "h": 18,
+        "br": "0px",
+        "bg": "rgba(0, 0, 0, 0)"
+      }
+    ],
+    "categoryOpen": null
+  },
+  "collapsed": {
+    "label": "collapsed",
+    "scrollY": 1200,
+    "toggle": {
+      "cls": "VZnKVW_close_button",
+      "text": "Filters",
+      "x": 96,
+      "w": 125.734375
+    },
+    "aside": [
+      {
+        "cls": "bvW4ma_filter_header",
+        "w": 1233,
+        "h": 58,
+        "x": 96,
+        "y": -952,
+        "position": "static",
+        "top": "auto",
+        "sticky": false
+      },
+      {
+        "cls": "XzlOkG_filter XzlOkG_is_fixed",
+        "w": 288,
+        "h": 377,
+        "x": 96,
+        "y": 20,
+        "position": "fixed",
+        "top": "20px",
+        "sticky": false
+      },
+      {
+        "cls": "VZnKVW_clear_filter",
+        "w": 116,
+        "h": 42,
+        "x": 269,
+        "y": 25,
+        "position": "static",
+        "top": "auto",
+        "sticky": false
+      },
+      {
+        "cls": "bvW4ma_filter_wrapper",
+        "w": 288,
+        "h": 305,
+        "x": 96,
+        "y": 92,
+        "position": "relative",
+        "top": "0px",
+        "sticky": false
+      },
+      {
+        "cls": "bvW4ma_filters",
+        "w": 288,
+        "h": 305,
+        "x": 96,
+        "y": 92,
+        "position": "static",
+        "top": "auto",
+        "sticky": false
+      },
+      {
+        "cls": "_6JGIfW_filter_section_btn",
+        "w": 248,
+        "h": 20,
+        "x": 116,
+        "y": 107,
+        "position": "static",
+        "top": "auto",
+        "sticky": false
+      },
+      {
+        "cls": "_6JGIfW_filter_section_btn",
+        "w": 248,
+        "h": 18,
+        "x": 116,
+        "y": 160,
+        "position": "static",
+        "top": "auto",
+        "sticky": false
+      },
+      {
+        "cls": "p5Dpua_filter_section_btn",
+        "w": 248,
+        "h": 18,
+        "x": 116,
+        "y": 211,
+        "position": "static",
+        "top": "auto",
+        "sticky": false
+      }
+    ],
+    "rows": [
+      {
+        "text": "Category Accessories",
+        "cls": "_6JGIfW_filter_section_btn",
+        "h": 20,
+        "br": "0px",
+        "bg": "rgba(0, 0, 0, 0)"
+      },
+      {
+        "text": "Subcategories",
+        "cls": "_6JGIfW_filter_section_btn",
+        "h": 18,
+        "br": "0px",
+        "bg": "rgba(0, 0, 0, 0)"
+      },
+      {
+        "text": "Application",
+        "cls": "p5Dpua_filter_section_btn",
+        "h": 18,
+        "br": "0px",
+        "bg": "rgba(0, 0, 0, 0)"
+      }
+    ],
+    "categoryOpen": null
+  }
+}

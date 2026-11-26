@@ -1,0 +1,33 @@
+{
+  "h1": {
+    "text": "Grout Brush w/Scraping Edge",
+    "w": 473,
+    "h": 46,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(1, 47, 108)",
+    "fs": "36px",
+    "fw": "200",
+    "lh": "46px",
+    "ls": "-1.8px",
+    "radius": "0px"
+  },
+  "tabs": [
+    "Description",
+    "Applications",
+    "Product Details",
+    "Downloads",
+    "Product Videos",
+    "Related Products"
+  ],
+  "body": {
+    "w": 1425,
+    "h": 6255,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(1, 47, 108)",
+    "fs": "16px",
+    "fw": "400",
+    "lh": "24px",
+    "ls": "normal",
+    "radius": "0px"
+  }
+}

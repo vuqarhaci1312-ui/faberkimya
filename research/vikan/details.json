@@ -1,0 +1,187 @@
+{
+  "home": {
+    "header": {
+      "tag": "HEADER",
+      "cls": "nn3ODa_header",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(1, 47, 108)",
+      "fs": "16px",
+      "fw": "400",
+      "br": "0px",
+      "pad": "0px",
+      "h": 100,
+      "w": 1425,
+      "shadow": "none",
+      "border": "0px solid rgb(1, 47, 108)"
+    },
+    "link": {
+      "tag": "BUTTON",
+      "cls": "_1jiqUq_button",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(1, 47, 108)",
+      "fs": "14px",
+      "fw": "400",
+      "br": "0px",
+      "pad": "0px",
+      "h": 20,
+      "w": 59,
+      "shadow": "none",
+      "border": "0px none rgb(1, 47, 108)"
+    },
+    "logo": {
+      "tag": "IMG",
+      "cls": "nn3ODa_logo",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(1, 47, 108)",
+      "fs": "16px",
+      "fw": "400",
+      "br": "0px",
+      "pad": "0px",
+      "h": 55,
+      "w": 101,
+      "shadow": "none",
+      "border": "0px solid rgb(1, 47, 108)"
+    },
+    "hero": {
+      "tag": "SECTION",
+      "cls": "_2pgaCG_heroWrapper  _2pgaCG_is_fullscreen",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(1, 47, 108)",
+      "fs": "16px",
+      "fw": "400",
+      "br": "0px",
+      "pad": "0px 32px",
+      "h": 790,
+      "w": 1425,
+      "shadow": "none",
+      "border": "0px solid rgb(1, 47, 108)"
+    },
+    "h1": {
+      "tag": "H1",
+      "cls": "zK5BSa_headline OqvtKq_H1",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(255, 255, 255)",
+      "fs": "57.6px",
+      "fw": "200",
+      "br": "0px",
+      "pad": "0px",
+      "h": 173,
+      "w": 580,
+      "shadow": "none",
+      "border": "0px solid rgb(255, 255, 255)"
+    },
+    "body": {
+      "tag": "BODY",
+      "cls": "",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(1, 47, 108)",
+      "fs": "16px",
+      "fw": "400",
+      "br": "0px",
+      "pad": "0px",
+      "h": 4187,
+      "w": 1425,
+      "shadow": "none",
+      "border": "0px solid rgb(1, 47, 108)"
+    }
+  },
+  "products": {
+    "body": {
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(1, 47, 108)",
+      "fs": "16px",
+      "fw": "400",
+      "br": "0px",
+      "pad": "0px",
+      "h": 6171,
+      "w": 1425,
+      "shadow": "none",
+      "lh": "24px",
+      "ls": "normal"
+    },
+    "main": {
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(1, 47, 108)",
+      "fs": "16px",
+      "fw": "400",
+      "br": "0px",
+      "pad": "100px 0px 0px",
+      "h": 4956,
+      "w": 1425,
+      "shadow": "none",
+      "lh": "24px",
+      "ls": "normal"
+    },
+    "h1": {
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(1, 47, 108)",
+      "fs": "57.6px",
+      "fw": "200",
+      "br": "0px",
+      "pad": "0px",
+      "h": 58,
+      "w": 208,
+      "shadow": "none",
+      "lh": "57.6px",
+      "ls": "-2.88px"
+    },
+    "card": {
+      "bg": "rgb(255, 255, 255)",
+      "color": "rgb(1, 47, 108)",
+      "fs": "16px",
+      "fw": "400",
+      "br": "8px",
+      "pad": "0px",
+      "h": 534,
+      "w": 293,
+      "shadow": "none",
+      "lh": "24px",
+      "ls": "normal"
+    },
+    "cardText": "NEW\n44073\nGrout Brush w/Scraping Edge\n\n225 mm, Very hard, Blue"
+  },
+  "contact": {
+    "h1": null,
+    "h2": {
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(1, 47, 108)",
+      "fs": "28px",
+      "fw": "300",
+      "br": "0px",
+      "pad": "0px",
+      "text": "Vikan Contacts"
+    },
+    "input": {
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(5, 28, 44)",
+      "fs": "15px",
+      "fw": "400",
+      "br": "6px",
+      "pad": "0px",
+      "text": ""
+    },
+    "btn": {
+      "bg": "rgb(0, 87, 184)",
+      "color": "rgb(1, 47, 108)",
+      "fs": "14px",
+      "fw": "400",
+      "br": "18px",
+      "pad": "5px 20px",
+      "text": "Find Dealer"
+    },
+    "headings": [
+      "Vikan Contacts",
+      "Stay Up-to-Date",
+      "Book a Meeting",
+      "Where to Buy",
+      "Products",
+      "Knowledge & Support",
+      "Company",
+      "Vikan Headquarters"
+    ]
+  },
+  "footer": {
+    "footerBg": "rgba(0, 0, 0, 0)",
+    "colored": []
+  }
+}

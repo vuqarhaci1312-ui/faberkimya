@@ -1,0 +1,18 @@
+{
+  "before": [
+    {
+      "label": "Category Products",
+      "btnTransition": "all",
+      "panel": {
+        "tag": "DIV",
+        "cls": "p5Dpua_wrapper",
+        "h": 48,
+        "transition": "background-color 0.25s cubic-bezier(0.53, 0.25, 0.39, 0.9)",
+        "overflow": "visible",
+        "maxHeight": "none",
+        "opacity": "1"
+      }
+    }
+  ],
+  "after": null
+}

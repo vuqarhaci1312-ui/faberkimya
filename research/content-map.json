@@ -1,0 +1,30 @@
+{
+  "logo": "Faber media/brand/logo.png in the measured 101x55 header slot",
+  "nav": {
+    "Məhsullar": "24 Faber categories in the Vikan mega-menu panel",
+    "Şirkət": "/shrkt-haqnda",
+    "Kataloqlar": "/kataloqlar",
+    "Əlaqə": "/elaqeler"
+  },
+  "home": {
+    "hero": "about title and first sentence, local product image",
+    "fourBands": ["Mətbəx gigiyenası", "Təmizlik", "Təmizlik avadanlığı", "Şəxsi gigiyena"],
+    "infoCards": ["Şirkət", "Kataloqlar", "Əlaqə"],
+    "actions": ["Əlaqə", "Kataloqlar", "Əks əlaqə"]
+  },
+  "unmappedVikanSlots": [
+    "Industries",
+    "Knowledge Centre",
+    "Blog",
+    "Webinars",
+    "Training",
+    "Awards",
+    "Case stories",
+    "Sustainability",
+    "My Vikan",
+    "newsletter",
+    "book-a-meeting",
+    "dealer locator",
+    "partner logo row"
+  ]
+}
