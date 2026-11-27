@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { createPortal } from "react-dom";
 import { Link, useParams, useSearchParams } from "react-router-dom";
+import { fetchProducts } from "../api/client";
 import { Breadcrumb } from "../components/Breadcrumb";
 import { ProductCard } from "../components/ProductCard";
 import {
@@ -11,7 +12,10 @@ import {
 } from "../data/catalog";
 import { filterParentGroups, filterSubcategories } from "../data/catalogFilters";
 import { groupForSlug } from "../data/categoryTree";
-import type { Category } from "../data/types";
+import type { Category, Product } from "../data/types";
+import { categoryTitleKey } from "../i18n/categoryKeys";
+import { useI18n } from "../i18n/I18nProvider";
+import { useLang, useLangPath } from "../i18n/langPath";
 import styles from "./Catalog.module.css";
 
 export function CatalogPage() {
@@ -21,8 +25,26 @@ export function CatalogPage() {
   const [filtersOpen, setFiltersOpen] = useState(true);
   const [narrow, setNarrow] = useState(false);
   const sort = params.get("sort") === "name-desc" ? "name-desc" : "name-asc";
+  const lang = useLang();
+  const path = useLangPath();
+  const { t, categoryName } = useI18n();
+  const categoryText = (item: Category) => categoryName(item.slug, "") || (categoryTitleKey[item.slug] ? t(categoryTitleKey[item.slug]) : "") || item.name;
+  const [remote, setRemote] = useState<Product[] | null>(null);
   const category = categorySlug ? getCategory(categorySlug) : undefined;
-  const base = categorySlug ? productsInCategory(categorySlug) : products;
+  useEffect(() => {
+    let cancelled = false;
+    fetchProducts(lang, { category: categorySlug, sort })
+      .then((data) => {
+        if (!cancelled) setRemote(data.items as Product[]);
+      })
+      .catch(() => {
+        if (!cancelled) setRemote(null);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [lang, categorySlug, sort]);
+  const base = remote ?? (categorySlug ? productsInCategory(categorySlug) : products);
   const list = useMemo(() => sortProducts(base, sort), [base, sort]);
   const currentGroup = groupForSlug(categorySlug);
   const parentGroups = useMemo(() => filterParentGroups(), []);
@@ -31,7 +53,11 @@ export function CatalogPage() {
     () => (parentSlug ? filterSubcategories(parentSlug) : []),
     [parentSlug],
   );
-  const categoryLabel = currentGroup?.parent?.name ?? category?.name ?? "Hamısı";
+  const categoryLabel = currentGroup?.parent
+    ? categoryText(currentGroup.parent)
+    : category
+      ? categoryText(category)
+      : t("catalog.all");
 
   useEffect(() => {
     const wide = window.matchMedia("(min-width: 1024px)");
@@ -62,7 +88,7 @@ export function CatalogPage() {
   if (categorySlug && !category) {
     return (
       <div className="wrap" style={{ paddingTop: "calc(var(--header-h) + 24px)" }}>
-        <h1 className="h1">Kateqoriya tapılmadı</h1>
+        <h1 className="h1">{t("catalog.missing")}</h1>
       </div>
     );
   }
@@ -70,17 +96,17 @@ export function CatalogPage() {
   return (
     <div className={`wrap ${styles.page}`}>
       <Breadcrumb items={[
-        { label: "Ana səhifə", to: "/" },
-        { label: "Məhsullar", to: "/mehsullar" },
-        ...(category ? [{ label: category.name }] : []),
+        { label: t("nav.home", "Ana səhifə"), to: path("/") },
+        { label: t("nav.products", "Məhsullar"), to: path("/mehsullar") },
+        ...(category ? [{ label: categoryText(category) }] : []),
       ]} />
       <div className={styles.head}>
-        <h1 className="h1">{category ? category.name : "Məhsullar"} <span>({list.length})</span></h1>
+        <h1 className="h1">{category ? categoryText(category) : t("nav.products")} <span>({list.length})</span></h1>
         <div className={styles.toolbar}>
           {narrow ? (
             <button type="button" className={styles.mobileFilterBtn} onClick={() => { setOpenFilter("category"); setFiltersOpen(true); }}>
               <PanelFilterIcon />
-              Filtr
+              {t("catalog.filter", "Filtr")}
               {categorySlug ? <span className={styles.mobileFilterDot} aria-hidden="true" /> : null}
             </button>
           ) : null}
@@ -89,7 +115,7 @@ export function CatalogPage() {
             className={styles.sort}
             onClick={() => setParams(sort === "name-asc" ? { sort: "name-desc" } : {})}
           >
-            Sırala
+            {t("catalog.sort", "Sırala")}
             <SortIcon />
           </button>
         </div>
@@ -97,39 +123,39 @@ export function CatalogPage() {
       {narrow && filtersOpen
         ? createPortal(
             <>
-              <button type="button" className={styles.sheetBackdrop} aria-label="Filtri bağla" onClick={() => setFiltersOpen(false)} />
-              <div className={styles.mobileSheet} role="dialog" aria-modal="true" aria-label="Filtrlər">
+              <button type="button" className={styles.sheetBackdrop} aria-label={t("catalog.filters_title")} onClick={() => setFiltersOpen(false)} />
+              <div className={styles.mobileSheet} role="dialog" aria-modal="true" aria-label={t("catalog.filters_title")}>
                 <div className={styles.sheetBar}>
                   <button type="button" className={styles.filterToggle} onClick={() => { setFiltersOpen(false); setOpenFilter(null); }}>
                     <BackIcon />
-                    Filtrlər
+                    {t("catalog.filters_title")}
                   </button>
                   {categorySlug ? (
-                    <Link to="/mehsullar" className={styles.clear} onClick={() => setFiltersOpen(false)}>Təmizlə</Link>
+                    <Link to={path("/mehsullar")} className={styles.clear} onClick={() => setFiltersOpen(false)}>{t("catalog.clear")}</Link>
                   ) : null}
                 </div>
                 <div className={styles.mobileSheetBody}>
                   <FilterAccordion
-                    label="Kateqoriya"
+                    label={t("catalog.category")}
                     meta={categoryLabel}
                     open={openFilter === "category"}
                     onToggle={() => setOpenFilter(openFilter === "category" ? null : "category")}
                   >
                     <ul className={styles.filterList}>
                       <li>
-                        <Link className={styles.filterOption} to="/mehsullar" aria-current={!categorySlug ? "page" : undefined} onClick={() => setFiltersOpen(false)}>
-                          Hamısı
+                        <Link className={styles.filterOption} to={path("/mehsullar")} aria-current={!categorySlug ? "page" : undefined} onClick={() => setFiltersOpen(false)}>
+                          {t("catalog.all")}
                         </Link>
                       </li>
                       {parentGroups.map((item: Category) => (
                         <li key={item.slug}>
                           <Link
                             className={styles.filterOption}
-                            to={`/mehsullar/${item.slug}`}
+                            to={path(`/mehsullar/${item.slug}`)}
                             aria-current={item.slug === categorySlug || item.slug === parentSlug ? "page" : undefined}
                             onClick={() => setFiltersOpen(false)}
                           >
-                            {item.name}
+                            {categoryText(item)}
                           </Link>
                         </li>
                       ))}
@@ -137,7 +163,7 @@ export function CatalogPage() {
                   </FilterAccordion>
                   {subcategories.length > 0 ? (
                     <FilterAccordion
-                      label="Alt kateqoriyalar"
+                      label={t("catalog.subcategories")}
                       meta={String(subcategories.length)}
                       open={openFilter === "sub"}
                       onToggle={() => setOpenFilter(openFilter === "sub" ? null : "sub")}
@@ -147,11 +173,11 @@ export function CatalogPage() {
                           <li key={item.slug}>
                             <Link
                               className={styles.filterOption}
-                              to={`/mehsullar/${item.slug}`}
+                              to={path(`/mehsullar/${item.slug}`)}
                               aria-current={item.slug === categorySlug ? "page" : undefined}
                               onClick={() => setFiltersOpen(false)}
                             >
-                              {item.name}
+                              {categoryText(item)}
                             </Link>
                           </li>
                         ))}
@@ -170,10 +196,10 @@ export function CatalogPage() {
       >
         <button type="button" className={styles.filterToggle} onClick={() => { setFiltersOpen(false); setOpenFilter(null); }}>
           <BackIcon />
-          Filtrlər
+          {t("catalog.filters_title")}
         </button>
         {categorySlug ? (
-          <Link to="/mehsullar" className={styles.clear}>× Hamısını təmizlə</Link>
+          <Link to={path("/mehsullar")} className={styles.clear}>× {t("catalog.clear")}</Link>
         ) : (
           <span className={styles.clearPlaceholder} aria-hidden="true" />
         )}
@@ -184,10 +210,10 @@ export function CatalogPage() {
             <div className={styles.sheetBar}>
               <button type="button" className={styles.filterToggle} onClick={() => { setFiltersOpen(false); setOpenFilter(null); }}>
                 <BackIcon />
-                Filtrlər
+                {t("catalog.filters_title")}
               </button>
               {categorySlug ? (
-                <Link to="/mehsullar" className={styles.clear} onClick={() => setFiltersOpen(false)}>Təmizlə</Link>
+                <Link to={path("/mehsullar")} className={styles.clear} onClick={() => setFiltersOpen(false)}>{t("catalog.clear")}</Link>
               ) : null}
             </div>
           ) : null}
@@ -195,26 +221,26 @@ export function CatalogPage() {
             <div className={styles.filtersInner}>
               <aside className={styles.filters}>
               <FilterAccordion
-                label="Kateqoriya"
+                label={t("catalog.category")}
                 meta={categoryLabel}
                 open={openFilter === "category"}
                 onToggle={() => setOpenFilter(openFilter === "category" ? null : "category")}
               >
                 <ul className={styles.filterList}>
                   <li>
-                    <Link className={styles.filterOption} to="/mehsullar" aria-current={!categorySlug ? "page" : undefined} tabIndex={filtersOpen ? undefined : -1}>
-                      Hamısı
+                    <Link className={styles.filterOption} to={path("/mehsullar")} aria-current={!categorySlug ? "page" : undefined} tabIndex={filtersOpen ? undefined : -1}>
+                      {t("catalog.all")}
                     </Link>
                   </li>
                   {parentGroups.map((item: Category) => (
                     <li key={item.slug}>
                       <Link
                         className={styles.filterOption}
-                        to={`/mehsullar/${item.slug}`}
+                        to={path(`/mehsullar/${item.slug}`)}
                         aria-current={item.slug === categorySlug || item.slug === parentSlug ? "page" : undefined}
                         tabIndex={filtersOpen ? undefined : -1}
                       >
-                        {item.name}
+                        {categoryText(item)}
                       </Link>
                     </li>
                   ))}
@@ -222,7 +248,7 @@ export function CatalogPage() {
               </FilterAccordion>
               {subcategories.length > 0 ? (
                 <FilterAccordion
-                  label="Alt kateqoriyalar"
+                  label={t("catalog.subcategories")}
                   meta={String(subcategories.length)}
                   open={openFilter === "sub"}
                   onToggle={() => setOpenFilter(openFilter === "sub" ? null : "sub")}
@@ -232,11 +258,11 @@ export function CatalogPage() {
                       <li key={item.slug}>
                         <Link
                           className={styles.filterOption}
-                          to={`/mehsullar/${item.slug}`}
+                          to={path(`/mehsullar/${item.slug}`)}
                           aria-current={item.slug === categorySlug ? "page" : undefined}
                           tabIndex={filtersOpen ? undefined : -1}
                         >
-                          {item.name}
+                          {categoryText(item)}
                         </Link>
                       </li>
                     ))}
@@ -249,7 +275,7 @@ export function CatalogPage() {
           <button
             type="button"
             className={styles.filterTab}
-            aria-label="Filtr menyusunu aç"
+            aria-label={t("catalog.filter")}
             aria-hidden={filtersOpen}
             tabIndex={filtersOpen ? -1 : 0}
             onClick={() => setFiltersOpen(true)}

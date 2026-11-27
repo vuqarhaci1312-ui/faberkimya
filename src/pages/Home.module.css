@@ -227,7 +227,7 @@
   justify-items: start;
 }
 .contactLogo {
-  width: min(168px, 44vw);
+  width: min(210px, 62vw);
   height: auto;
   display: block;
   object-fit: contain;
@@ -520,7 +520,7 @@
     gap: 10px;
   }
   .contactLogo {
-    width: min(148px, 42vw);
+    width: min(180px, 58vw);
   }
   .contactTitle {
     font-size: 26px;

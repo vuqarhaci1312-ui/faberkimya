@@ -1,8 +1,11 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import type { NewsBlock } from "../data/homeNews";
+import { fetchNews, fetchNewsItem } from "../api/client";
+import type { HomeNewsItem, NewsBlock } from "../data/homeNews";
 import { Breadcrumb } from "../components/Breadcrumb";
 import { getHomeNewsItemBySlug, homeNewsItems } from "../data/homeNews";
+import { useI18n } from "../i18n/I18nProvider";
+import { useLang, useLangPath } from "../i18n/langPath";
 import styles from "./NewsDetail.module.css";
 
 function applyPageMeta(seoTitle: string, metaDescription: string, keywords: string) {
@@ -51,7 +54,24 @@ function NewsBlocks({ blocks }: { blocks: NewsBlock[] }) {
 
 export function NewsDetailPage() {
   const { slug } = useParams();
-  const article = slug ? getHomeNewsItemBySlug(slug) : undefined;
+  const lang = useLang();
+  const path = useLangPath();
+  const { t } = useI18n();
+  const fallback = slug ? getHomeNewsItemBySlug(slug) : undefined;
+  const [article, setArticle] = useState(fallback);
+  const [relatedRemote, setRelatedRemote] = useState<HomeNewsItem[] | null>(null);
+  useEffect(() => {
+    if (!slug) return;
+    fetchNewsItem(lang, slug)
+      .then((data) => {
+        const item = data.item as HomeNewsItem;
+        setArticle({ ...fallback, ...item, id: item.slug, to: `/${lang}/blog/${item.slug}`, blocks: item.blocks ?? fallback?.blocks ?? [] });
+      })
+      .catch(() => setArticle(fallback));
+    fetchNews(lang)
+      .then((data) => setRelatedRemote(data.items as HomeNewsItem[]))
+      .catch(() => setRelatedRemote(null));
+  }, [lang, slug]);
 
   useEffect(() => {
     if (!article) return;
@@ -70,14 +90,15 @@ export function NewsDetailPage() {
     );
   }
 
-  const related = homeNewsItems.filter((item) => item.id !== article.id).slice(0, 3);
+  const relatedSource = relatedRemote ?? homeNewsItems;
+  const related = relatedSource.filter((item) => (item.slug || item.id) !== article.slug && item.id !== article.id).slice(0, 3);
 
   return (
     <article className={styles.page}>
       <Breadcrumb
         items={[
-          { label: "Ana səhifə", to: "/" },
-          { label: "Xəbərlər", to: "/#xeberler" },
+          { label: t("nav.home", "Ana səhifə"), to: path("/") },
+          { label: t("nav.news", "Xəbərlər"), to: path("/#xeberler") },
           { label: article.title },
         ]}
       />
@@ -102,12 +123,12 @@ export function NewsDetailPage() {
       {related.length > 0 ? (
         <section className={styles.related} aria-labelledby="related-news-heading">
           <h2 id="related-news-heading" className={styles.relatedTitle}>
-            Digər xəbərlər
+            {t("news.related", "Digər xəbərlər")}
           </h2>
           <ul className={styles.relatedList}>
             {related.map((item) => (
               <li key={item.id}>
-                <Link to={item.to} className={styles.relatedCard}>
+                <Link to={item.to || path(`/blog/${item.slug}`)} className={styles.relatedCard}>
                   <span className={styles.relatedVisual}>
                     <img src={item.banner} alt="" width={item.bannerWidth ?? 740} height={item.bannerHeight ?? 400} loading="lazy" decoding="async" />
                   </span>

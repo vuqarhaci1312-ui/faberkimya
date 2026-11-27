@@ -1,0 +1,33 @@
+# Hestia: place in public_html/.htaccess (adjust paths if backend lives beside frontend)
+
+RewriteEngine On
+
+# PHP API — not SPA
+RewriteRule ^api(?:/(.*))?$ backend/public/api/index.php [QSA,L,E=PATH_INFO:/$1]
+
+# Admin static assets must not enter the PHP front controller
+RewriteRule ^secad/assets/(.*)$ backend/public/secad/assets/$1 [L]
+
+# Admin panel
+RewriteRule ^secad/?$ backend/public/secad/index.php [QSA,L]
+RewriteRule ^secad/(.*)$ backend/public/secad/index.php [QSA,L]
+
+# Static files
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Legacy paths → default language
+RewriteRule ^mehsullar/?$ /az/mehsullar [R=301,L]
+RewriteRule ^mehsul/(.*)$ /az/mehsul/$1 [R=301,L]
+RewriteRule ^blog/(.*)$ /az/blog/$1 [R=301,L]
+RewriteRule ^kataloqlar/?$ /az/kataloqlar [R=301,L]
+RewriteRule ^sirket/?$ /az/sirket [R=301,L]
+RewriteRule ^elaqe/?$ /az/elaqe [R=301,L]
+RewriteRule ^axtaris/?$ /az/axtaris [R=301,L]
+
+# Site root → az
+RewriteRule ^$ /az/ [R=302,L]
+
+# SPA with language prefix
+RewriteRule ^(az|ru|tr|en)(/.*)?$ /index.html [L]

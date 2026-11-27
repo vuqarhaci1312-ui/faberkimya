@@ -1,6 +1,10 @@
-import { useEffect, useId, useState, type FormEvent } from "react";
+import { useEffect, useId, useRef, useState, type FormEvent } from "react";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { company } from "../data/catalog";
+import { SUPPORTED_LANGS, type Lang } from "../i18n/I18nProvider";
+import { useI18n } from "../i18n/I18nProvider";
+import { categoryTitleKey } from "../i18n/categoryKeys";
+import { stripLangPrefix, useLang, useLangPath } from "../i18n/langPath";
 import { categoryTree } from "../data/categoryTree";
 import iconFiles from "../data/vikan-icons.json";
 import { menuIconBySlug } from "../data/menuIcons";
@@ -23,12 +27,17 @@ function iconForSlug(slug: string) {
 export function Header() {
   const location = useLocation();
   const navigate = useNavigate();
+  const path = useLangPath();
+  const lang = useLang();
+  const { t, categoryName } = useI18n();
   const [menu, setMenu] = useState<"mobile" | null>(null);
   const [productsOpen, setProductsOpen] = useState(false);
   const [activeGroup, setActiveGroup] = useState<string | null>(null);
   const [mobileScreen, setMobileScreen] = useState<"main" | "groups" | "items">("main");
   const [mobileGroup, setMobileGroup] = useState<(typeof groups)[number] | null>(null);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [langsOpen, setLangsOpen] = useState(false);
+  const langMenuRef = useRef<HTMLDivElement>(null);
   const [query, setQuery] = useState("");
   const searchId = useId();
 
@@ -37,6 +46,7 @@ export function Header() {
     setProductsOpen(false);
     setActiveGroup(null);
     setSearchOpen(false);
+    setLangsOpen(false);
     setMobileScreen("main");
     setMobileGroup(null);
   }, [location.pathname, location.search]);
@@ -71,37 +81,86 @@ export function Header() {
     };
   }, [menu]);
 
+  useEffect(() => {
+    if (!langsOpen) return;
+    const onPointer = (event: MouseEvent) => {
+      if (!langMenuRef.current?.contains(event.target as Node)) setLangsOpen(false);
+    };
+    document.addEventListener("mousedown", onPointer);
+    return () => document.removeEventListener("mousedown", onPointer);
+  }, [langsOpen]);
+
+  function chooseLang(next: Lang) {
+    const rest = stripLangPrefix(location.pathname);
+    navigate(`/${next}${rest === "/" ? "" : rest}${location.search}${location.hash}`);
+    setLangsOpen(false);
+  }
+
+  function labelFor(slug: string, name: string) {
+    const fromApi = categoryName(slug, "");
+    if (fromApi) return fromApi;
+    const key = categoryTitleKey[slug];
+    return (key ? t(key) : "") || name;
+  }
+
   function submitSearch(event: FormEvent) {
     event.preventDefault();
     const q = query.trim();
     if (!q) return;
-    navigate(`/axtaris?q=${encodeURIComponent(q)}`);
+    navigate(`${path("/axtaris")}?q=${encodeURIComponent(q)}`);
   }
 
   return (
     <header className={`${styles.header} ${styles.solid}`}>
-      <Link className={styles.logo} to="/" aria-label="Faberkimya ana səhifə">
+      <Link className={styles.logo} to={path("/")} aria-label="Faberkimya ana səhifə">
         {company.logo ? <img src={company.logo} alt="Faberkimya" /> : <span>Faberkimya</span>}
       </Link>
       <nav className={styles.nav} aria-label="Əsas">
         <ul>
           <li>
             <button type="button" aria-expanded={productsOpen} onClick={() => { setProductsOpen((open) => !open); setActiveGroup(null); }}>
-              Məhsullar
+              {t("nav.products", "Məhsullar")}
             </button>
           </li>
-          <li><NavLink to="/sirket">Şirkət haqqında</NavLink></li>
-          <li><NavLink to="/kataloqlar">Kataloqlar</NavLink></li>
-          <li><NavLink to="/elaqe">Bizimlə əlaqə</NavLink></li>
+          <li><NavLink to={path("/sirket")}>{t("nav.about", "Şirkət haqqında")}</NavLink></li>
+          <li><NavLink to={path("/kataloqlar")}>{t("nav.catalogs", "Kataloqlar")}</NavLink></li>
+          <li><NavLink to={path("/elaqe")}>{t("nav.contact_us", "Bizimlə əlaqə")}</NavLink></li>
         </ul>
       </nav>
       <div className={styles.tools}>
-        <button type="button" className={styles.tool} aria-label="Search" onClick={() => setSearchOpen(true)}>
-          <SearchIcon /> Search
+        <button type="button" className={styles.tool} aria-label={t("nav.search")} onClick={() => setSearchOpen(true)}>
+          <SearchIcon /> {t("nav.search")}
         </button>
-        <button type="button" className={styles.icon} aria-label="Dil">
-          <GlobeIcon />
-        </button>
+        <div className={styles.langMenu} ref={langMenuRef}>
+          <button
+            type="button"
+            className={styles.icon}
+            aria-label={t("lang.switcher_label")}
+            aria-expanded={langsOpen}
+            aria-haspopup="listbox"
+            onClick={() => setLangsOpen((open) => !open)}
+          >
+            <GlobeIcon />
+          </button>
+          {langsOpen ? (
+            <ul className={styles.langList} role="listbox" aria-label={t("lang.switcher_label")}>
+              {SUPPORTED_LANGS.map((code) => (
+                <li key={code}>
+                  <button
+                    type="button"
+                    role="option"
+                    aria-selected={code === lang}
+                    className={code === lang ? styles.langOptionOn : styles.langOption}
+                    onClick={() => chooseLang(code)}
+                  >
+                    <Flag code={code} />
+                    <span>{code.toUpperCase()}</span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          ) : null}
+        </div>
         <a className={styles.icon} href={company.phoneHrefs[0]} aria-label={company.phones[0]}>
           <PhoneIcon />
         </a>
@@ -123,7 +182,7 @@ export function Header() {
                   aria-expanded={activeGroup === group.label}
                   onClick={() => setActiveGroup(group.label)}
                 >
-                  <span>{group.label}</span>
+                  <span>{labelFor(group.slug, group.label)}</span>
                   <Arrow />
                 </button>
               ))}
@@ -131,9 +190,9 @@ export function Header() {
             {activeGroup ? (
               <div className={styles.sub}>
                 {groups.find((group) => group.label === activeGroup)?.items.map((category) => (
-                  <Link key={category.slug} to={`/mehsullar/${category.slug}`}><img src={iconForSlug(category.slug)} alt="" />{category.name}</Link>
+                  <Link key={category.slug} to={path(`/mehsullar/${category.slug}`)}><img src={iconForSlug(category.slug)} alt="" />{labelFor(category.slug, category.name)}</Link>
                 ))}
-                <Link to="/mehsullar">Bütün məhsullar</Link>
+                <Link to={path("/mehsullar")}>{t("nav.all_products", "Bütün məhsullar")}</Link>
               </div>
             ) : null}
           </div>
@@ -146,15 +205,15 @@ export function Header() {
               <span className={styles.mobileBarSide} />
             ) : (
               <button type="button" className={styles.mobileBack} onClick={goMobileBack}>
-                Geri
+                ←
               </button>
             )}
             <p className={styles.mobileBarTitle}>
               {mobileScreen === "items" && mobileGroup
-                ? mobileGroup.label
+                ? labelFor(mobileGroup.slug, mobileGroup.label)
                 : mobileScreen === "groups"
-                  ? "Məhsullar"
-                  : "Menyu"}
+                  ? t("nav.products")
+                  : t("brand.name")}
             </p>
             <button type="button" className={styles.mobileClose} aria-label="Bağla" onClick={closeMobileMenu}>
               ×
@@ -166,25 +225,25 @@ export function Header() {
                 <ul className={styles.mobileMenu}>
                   <li>
                     <button type="button" className={styles.mobileRow} onClick={() => setMobileScreen("groups")}>
-                      <span>Məhsullar</span>
+                      <span>{t("nav.products")}</span>
                       <Arrow />
                     </button>
                   </li>
                   <li>
-                    <Link className={styles.mobileRow} to="/sirket" onClick={closeMobileMenu}>
-                      <span>Şirkət haqqında</span>
+                    <Link className={styles.mobileRow} to={path("/sirket")} onClick={closeMobileMenu}>
+                      <span>{t("nav.about")}</span>
                       <Arrow />
                     </Link>
                   </li>
                   <li>
-                    <Link className={styles.mobileRow} to="/kataloqlar" onClick={closeMobileMenu}>
-                      <span>Kataloqlar</span>
+                    <Link className={styles.mobileRow} to={path("/kataloqlar")} onClick={closeMobileMenu}>
+                      <span>{t("nav.catalogs")}</span>
                       <Arrow />
                     </Link>
                   </li>
                   <li>
-                    <Link className={styles.mobileRow} to="/elaqe" onClick={closeMobileMenu}>
-                      <span>Bizimlə əlaqə</span>
+                    <Link className={styles.mobileRow} to={path("/elaqe")} onClick={closeMobileMenu}>
+                      <span>{t("nav.contact_us")}</span>
                       <Arrow />
                     </Link>
                   </li>
@@ -193,8 +252,8 @@ export function Header() {
               <nav className={styles.mobilePane} aria-label="Məhsul qrupları">
                 <ul className={styles.mobileMenu}>
                   <li>
-                    <Link className={styles.mobileRow} to="/mehsullar" onClick={closeMobileMenu}>
-                      <span>Bütün məhsullar</span>
+                    <Link className={styles.mobileRow} to={path("/mehsullar")} onClick={closeMobileMenu}>
+                      <span>{t("nav.all_products")}</span>
                       <Arrow />
                     </Link>
                   </li>
@@ -208,7 +267,7 @@ export function Header() {
                           setMobileScreen("items");
                         }}
                       >
-                        <span>{group.label}</span>
+                        <span>{labelFor(group.slug, group.label)}</span>
                         <Arrow />
                       </button>
                     </li>
@@ -219,8 +278,8 @@ export function Header() {
                 <ul className={styles.mobileMenu}>
                   {mobileGroup ? (
                     <li>
-                      <Link className={styles.mobileRow} to={`/mehsullar/${mobileGroup.slug}`} onClick={closeMobileMenu}>
-                        <span>Bu qrupun hamısı</span>
+                      <Link className={styles.mobileRow} to={path(`/mehsullar/${mobileGroup.slug}`)} onClick={closeMobileMenu}>
+                        <span>{t("nav.all_products")}</span>
                         <Arrow />
                       </Link>
                     </li>
@@ -229,12 +288,12 @@ export function Header() {
                     <li key={category.slug}>
                       <Link
                         className={`${styles.mobileRow} ${styles.mobileRowIcon}`}
-                        to={`/mehsullar/${category.slug}`}
+                        to={path(`/mehsullar/${category.slug}`)}
                         onClick={closeMobileMenu}
                       >
                         <span className={styles.mobileRowLabel}>
                           <img src={iconForSlug(category.slug)} alt="" />
-                          {category.name}
+                          {labelFor(category.slug, category.name)}
                         </span>
                         <Arrow />
                       </Link>
@@ -248,9 +307,9 @@ export function Header() {
       ) : null}
       {searchOpen ? (
         <form className={styles.search} onSubmit={submitSearch} role="search">
-          <label htmlFor={searchId}>Məhsullar üzrə axtarış</label>
+          <label htmlFor={searchId}>{t("nav.search")}</label>
           <input id={searchId} value={query} onChange={(event) => setQuery(event.target.value)} autoFocus />
-          <button className="pill" type="submit">Axtar</button>
+          <button className="pill" type="submit">{t("nav.search")}</button>
           <button type="button" className={styles.close} aria-label="Bağla" onClick={() => setSearchOpen(false)}>×</button>
         </form>
       ) : null}
@@ -266,6 +325,45 @@ function SearchIcon() {
   return (
     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
       <path d="M13 13.0002L19 19.0002M8 15.0002C4.13401 15.0002 1 11.8662 1 8.00024C1 4.13425 4.13401 1.00024 8 1.00024C11.866 1.00024 15 4.13425 15 8.00024C15 11.8662 11.866 15.0002 8 15.0002Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function Flag({ code }: { code: Lang }) {
+  if (code === "az") {
+    return (
+      <svg className={styles.flag} viewBox="0 0 20 14" aria-hidden="true">
+        <rect width="20" height="4.67" fill="#00b5e2" />
+        <rect y="4.67" width="20" height="4.66" fill="#ef3340" />
+        <rect y="9.33" width="20" height="4.67" fill="#509e2f" />
+      </svg>
+    );
+  }
+  if (code === "ru") {
+    return (
+      <svg className={styles.flag} viewBox="0 0 20 14" aria-hidden="true">
+        <rect width="20" height="4.67" fill="#ffffff" />
+        <rect y="4.67" width="20" height="4.66" fill="#0039a6" />
+        <rect y="9.33" width="20" height="4.67" fill="#d52b1e" />
+      </svg>
+    );
+  }
+  if (code === "tr") {
+    return (
+      <svg className={styles.flag} viewBox="0 0 20 14" aria-hidden="true">
+        <rect width="20" height="14" fill="#e30a17" />
+        <circle cx="8" cy="7" r="3.2" fill="#ffffff" />
+        <circle cx="9" cy="7" r="2.5" fill="#e30a17" />
+      </svg>
+    );
+  }
+  return (
+    <svg className={styles.flag} viewBox="0 0 20 14" aria-hidden="true">
+      <rect width="20" height="14" fill="#012169" />
+      <path d="M0 0l20 14M20 0L0 14" stroke="#ffffff" strokeWidth="2.4" />
+      <path d="M0 0l20 14M20 0L0 14" stroke="#c8102e" strokeWidth="1.2" />
+      <path d="M10 0v14M0 7h20" stroke="#ffffff" strokeWidth="3.6" />
+      <path d="M10 0v14M0 7h20" stroke="#c8102e" strokeWidth="2" />
     </svg>
   );
 }

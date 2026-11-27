@@ -1,15 +1,30 @@
 import { NavLink, useLocation } from "react-router-dom";
+import { useI18n } from "../i18n/I18nProvider";
+import { useLangPath } from "../i18n/langPath";
 import styles from "./MobileTabBar.module.css";
 
+function bare(path: string) {
+  return path.replace(/^\/(az|ru|tr|en)(?=\/|$)/, "") || "/";
+}
+
 const tabs = [
-  { to: "/", label: "Ana səhifə", end: true, match: (path: string) => path === "/", icon: HomeIcon },
-  { to: "/mehsullar", label: "Məhsullar", end: false, match: (path: string) => path.startsWith("/mehsullar") || path.startsWith("/mehsul"), icon: ProductsIcon },
-  { to: "/sirket", label: "Şirkət haqqında", end: false, match: (path: string) => path.startsWith("/sirket"), icon: CompanyIcon },
-  { to: "/kataloqlar", label: "Kataloqlar", end: false, match: (path: string) => path.startsWith("/kataloqlar"), icon: CatalogsIcon },
+  { to: "/", labelKey: "nav.home", label: "Ana səhifə", end: true, match: (path: string) => bare(path) === "/", icon: HomeIcon },
+  { to: "/mehsullar", labelKey: "nav.products", label: "Məhsullar", end: false, match: (path: string) => bare(path).startsWith("/mehsullar") || bare(path).startsWith("/mehsul"), icon: ProductsIcon },
+  { to: "/sirket", labelKey: "nav.company", label: "Şirkət haqqında", end: false, match: (path: string) => bare(path).startsWith("/sirket"), icon: CompanyIcon },
+  {
+    to: "/kataloqlar",
+    labelKey: "nav.catalogs",
+    label: "Kataloqlar",
+    end: false,
+    match: (path: string) => bare(path).startsWith("/kataloqlar"),
+    icon: CatalogsIcon,
+  },
 ];
 
 export function MobileTabBar() {
   const { pathname } = useLocation();
+  const path = useLangPath();
+  const { t } = useI18n();
   const found = tabs.findIndex((tab) => tab.match(pathname));
   const active = found < 0 ? 0 : found;
 
@@ -20,11 +35,11 @@ export function MobileTabBar() {
         const Icon = tab.icon;
         const on = tab.match(pathname);
         return (
-          <NavLink key={tab.to} to={tab.to} end={tab.end} className={`${styles.tab} ${on ? styles.tabOn : ""}`}>
+          <NavLink key={tab.to} to={path(tab.to)} end={tab.end} className={`${styles.tab} ${on ? styles.tabOn : ""}`}>
             <span className={styles.icon}>
               <Icon />
             </span>
-            <span className={styles.label}>{tab.label}</span>
+            <span className={styles.label}>{t(tab.labelKey, tab.label)}</span>
           </NavLink>
         );
       })}

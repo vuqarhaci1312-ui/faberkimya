@@ -1,12 +1,17 @@
 import { useState, type CSSProperties } from "react";
 import { Link } from "react-router-dom";
 import { categoryExplorerItems } from "../data/categoryExplorer";
+import { useI18n } from "../i18n/I18nProvider";
+import { categoryTitleKey } from "../i18n/categoryKeys";
+import { useLangPath } from "../i18n/langPath";
 import styles from "./CategoryExplorer.module.css";
 
 const ROW_SPLIT = Math.ceil(categoryExplorerItems.length / 2);
 
 export function CategoryExplorer() {
   const [activeSlug, setActiveSlug] = useState<string | null>(null);
+  const { t } = useI18n();
+  const path = useLangPath();
 
   return (
     <section className={styles.section} aria-label="Məhsul kateqoriyaları">
@@ -23,7 +28,7 @@ export function CategoryExplorer() {
               return (
                 <Link
                   key={item.slug}
-                  to={`/mehsullar/${item.slug}`}
+                  to={path(`/mehsullar/${item.slug}`)}
                   className={`${styles.cell}${on ? ` ${styles.cellOn}` : ""}`}
                   style={{ gridRow: row, gridColumn: col }}
                   onMouseEnter={() => setActiveSlug(item.slug)}
@@ -43,7 +48,7 @@ export function CategoryExplorer() {
                       draggable={false}
                     />
                   </span>
-                  <span className={styles.label}>{item.title}</span>
+                  <span className={styles.label}>{t(categoryTitleKey[item.slug] || "") || item.title}</span>
                 </Link>
               );
             })}

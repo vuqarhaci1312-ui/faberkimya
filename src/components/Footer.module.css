@@ -7,10 +7,10 @@
   width: min(1200px, 100%);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 140px 1fr 1fr 1fr;
+  grid-template-columns: 200px 1fr 1fr 1fr;
   gap: 32px;
 }
-.logo img { width: 101px; height: 55px; object-fit: contain; background: var(--white); border-radius: 4px; }
+.logo img { width: 176px; height: 52px; object-fit: contain; object-position: left center; background: transparent; }
 h2 { font-size: 16px; font-weight: 400; line-height: 24px; margin: 0 0 16px; }
 ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
 a { font-size: 14px; line-height: 20px; }

@@ -1,10 +1,36 @@
-import { useCallback, useRef, type CSSProperties } from "react";
+import { useCallback, useEffect, useRef, useState, type CSSProperties } from "react";
 import { Link } from "react-router-dom";
-import { homeNewsItems } from "../data/homeNews";
+import { fetchNews } from "../api/client";
+import { homeNewsItems, type HomeNewsItem } from "../data/homeNews";
+import { useI18n } from "../i18n/I18nProvider";
+import { useLang } from "../i18n/langPath";
 import styles from "./HomeNewsSection.module.css";
 
 export function HomeNewsSection() {
   const trackRef = useRef<HTMLDivElement>(null);
+  const lang = useLang();
+  const { t } = useI18n();
+  const [items, setItems] = useState(homeNewsItems);
+  useEffect(() => {
+    fetchNews(lang)
+      .then((data) => {
+        const remote = data.items as HomeNewsItem[];
+        if (remote.length) {
+          setItems(remote.map((item, index) => {
+            const base = homeNewsItems.find((news) => news.slug === item.slug) ?? homeNewsItems[index];
+            return {
+              ...base,
+              ...item,
+              title: item.title || base?.title || "",
+              subtitle: item.subtitle || base?.subtitle || "",
+              id: item.slug || base?.id,
+              to: item.to || `/${lang}/blog/${item.slug}`,
+            };
+          }));
+        }
+      })
+      .catch(() => undefined);
+  }, [lang]);
 
   const scroll = useCallback((direction: -1 | 1) => {
     const el = trackRef.current;
@@ -21,7 +47,7 @@ export function HomeNewsSection() {
         <header className={styles.container}>
           <div className={styles.toolbar}>
             <h2 id="home-news-heading" className={styles.heading}>
-              Xəbərlər
+              {t("nav.news", "Xəbərlər")}
             </h2>
             <div className={styles.nav}>
               <button type="button" className={styles.navBtn} aria-label="Əvvəlki xəbər" onClick={() => scroll(-1)}>
@@ -35,7 +61,7 @@ export function HomeNewsSection() {
         </header>
         <div className={`${styles.viewport} ${styles.container}`}>
           <div ref={trackRef} className={styles.track}>
-            {homeNewsItems.map((item) => (
+            {items.map((item) => (
               <div key={item.id} data-news-slide className={styles.slide}>
                 <Link to={item.to} className={styles.card}>
                   <div className={styles.copy}>
