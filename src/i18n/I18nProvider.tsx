@@ -1,6 +1,7 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
 import { fetchBootstrap, type BootstrapResponse } from "../api/client";
 import { company as staticCompany } from "../data/catalog";
+import { staticMessages } from "./messages";
 
 export const SUPPORTED_LANGS = ["az", "ru", "tr", "en"] as const;
 export type Lang = (typeof SUPPORTED_LANGS)[number];
@@ -52,10 +53,12 @@ export function I18nProvider({ lang, children }: { lang: Lang; children: ReactNo
     (key: string, fallback?: string) => {
       const value = translations[key];
       if (value) return value;
+      const bundled = staticMessages[lang]?.[key] || staticMessages.az[key];
+      if (bundled) return bundled;
       if (fallback) return fallback;
       return "";
     },
-    [translations],
+    [lang, translations],
   );
 
   const categoryName = useCallback(
